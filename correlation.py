@@ -6,7 +6,7 @@ def load_journal(file:str)->dict:
     ret=json.load(fptr)
     return ret
 
-def compute_phi(file:str, event:str)->float:
+def compute_phi(file:str, exist:str)->float:
     ret=load_journal(file)
     corr=0.0
     n00=n11=n01=n10=0
@@ -33,7 +33,7 @@ def compute_phi(file:str, event:str)->float:
                 n01+=1
             else:
                 n00+=1
-                
+
     corr=(n11*n00 -n01*n10)/((n_1*n_0*n0_*n1_)**0.5)
     return corr
 
